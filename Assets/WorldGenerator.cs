@@ -16,15 +16,16 @@ public class WorldGenerator : MonoBehaviour
     public GameObject waterTile;
     public GameObject groundTile;
 
-    private int seed;
+    private float seed;
 
     private void Start()
     {
+        seed = Random.value;
+
         values = new float[width, height];
         generateNoiseMap();
         noiseToTile();
 
-        seed = Random.Range(0, 1000);
     }
 
     public void generateNoiseMap()

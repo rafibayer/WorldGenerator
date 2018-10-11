@@ -217,11 +217,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecddc26a13232445bad4a22bb823a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  octaves: 8
-  freq: 100
+  octaves: 5
+  freq: 25
   amp: 1
-  width: 20
-  height: 20
+  width: 100
+  height: 100
   waterTile: {fileID: 1350508052555536, guid: 971952d0209debf41b6c2028bd9ecfc7, type: 2}
   groundTile: {fileID: 1405320033057762, guid: 2dfb9b106f01aea4591b3ef441f3ff3c, type: 2}
 --- !u!4 &967657154
