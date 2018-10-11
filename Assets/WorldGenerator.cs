@@ -16,24 +16,15 @@ public class WorldGenerator : MonoBehaviour
     public GameObject waterTile;
     public GameObject groundTile;
 
+    private int seed;
+
     private void Start()
     {
         values = new float[width, height];
         generateNoiseMap();
         noiseToTile();
-    }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            foreach(Transform t in transform)
-            {
-                Destroy(t.gameObject);
-                generateNoiseMap();
-                noiseToTile();
-            }
-        }
+        seed = Random.Range(0, 1000);
     }
 
     public void generateNoiseMap()
@@ -47,7 +38,7 @@ public class WorldGenerator : MonoBehaviour
 
                 for(int o = 0; o < octaves; o++)
                 {
-                    noise += Mathf.PerlinNoise(x * gain / freq, y * gain / freq) * amp / gain;
+                    noise += Mathf.PerlinNoise(seed + x * gain / freq, seed + y * gain / freq) * amp / gain;
                     gain *= 2.0f;
 
                     values[x, y] = noise;
