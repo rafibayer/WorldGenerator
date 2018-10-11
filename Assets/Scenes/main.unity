@@ -184,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 441797953}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 50, y: 100, z: 50}
+  m_LocalPosition: {x: 25, y: 50, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -217,13 +217,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecddc26a13232445bad4a22bb823a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mode: 1
+  normalize: 1
   octaves: 5
-  freq: 25
+  freq: 13
   amp: 1
-  width: 100
-  height: 100
+  width: 50
+  height: 50
+  scale: 1
+  waterLevel: 0.65
+  beachLevel: 0.7
+  groundLevel: 0.82
+  mountainLevel: 0.9
+  snowLevel: 0.95
   waterTile: {fileID: 1350508052555536, guid: 971952d0209debf41b6c2028bd9ecfc7, type: 2}
+  beachTile: {fileID: 1642346280940418, guid: febc27076587cf9429b16eb53f8f4140, type: 2}
   groundTile: {fileID: 1405320033057762, guid: 2dfb9b106f01aea4591b3ef441f3ff3c, type: 2}
+  mountainTile: {fileID: 1396555280604582, guid: 70a49729f57247740afe4718d434b6a1,
+    type: 2}
+  snowTile: {fileID: 1401864389682918, guid: 6514793121836044380931e335d3054a, type: 2}
+  savedPath: C:\Unity\proceduralWorlds\Assets\test.txt
 --- !u!4 &967657154
 Transform:
   m_ObjectHideFlags: 0
@@ -231,7 +244,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 967657152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 106.4, y: 6.4496555, z: 14.525002}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
