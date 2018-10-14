@@ -231,7 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 1
   normalize: 1
-  octaves: 5
+  octaves: 3
   freq: 25
   amp: 1
   width: 100
