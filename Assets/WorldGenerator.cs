@@ -32,6 +32,8 @@ public class WorldGenerator : MonoBehaviour
     public GameObject mountainTile;
     public GameObject snowTile;
 
+    public List<worldTile> worldTiles;
+
     //filepath for read/write
     public string savedPath;
 
@@ -40,14 +42,22 @@ public class WorldGenerator : MonoBehaviour
 
     public enum Mode
     {
-        generate,
-        read
+        write,//generate a new world and write it to the disk
+        generate,//generate a new world but don't write it to the disk
+        read//read a world from the disk
     };
 
     private void Start()
     {
         //generate new map
         if(mode == Mode.generate)
+        {
+            seed = Random.value;
+            values = new float[width, height];
+            generateNoiseMap();
+            noiseToTile();
+        }
+        else if(mode == Mode.write)//generate world and write
         {
             seed = Random.value;
             values = new float[width, height];
@@ -148,7 +158,7 @@ public class WorldGenerator : MonoBehaviour
 
     public void noiseToTile()
     {
-
+        worldTiles.Sort(new WorldTileComp());
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
@@ -156,30 +166,44 @@ public class WorldGenerator : MonoBehaviour
                 Vector3 pos = new Vector3(x * scale, 0, y * scale);
                 float val = values[x, y];
 
-                if (val < waterLevel)
+                bool spawned = false;
+                foreach(worldTile wt in worldTiles)
                 {
-                    Instantiate(waterTile, pos, Quaternion.identity, transform);
+                    if(val < wt.maxHeight && !spawned)
+                    {
+                        Instantiate(wt, pos, Quaternion.identity, transform);
+                        spawned = true;
+                    }
                 }
-                else if(val < beachLevel)
+                if(!spawned)
                 {
-                    Instantiate(beachTile, pos, Quaternion.identity, transform);
-
-                } 
-                else if(val < groundLevel)
-                {
-                    Instantiate(groundTile, pos, Quaternion.identity, transform);
-
+                    Instantiate(worldTiles[worldTiles.Count - 1], pos, Quaternion.identity, transform);
                 }
-                else if(val < mountainLevel)
-                {
-                    Instantiate(mountainTile, pos, Quaternion.identity, transform);
 
-                }
-                else
-                {
-                    Instantiate(snowTile, pos, Quaternion.identity, transform);
-
-                }
+                //if (val < waterLevel)
+                //{
+                //    Instantiate(waterTile, pos, Quaternion.identity, transform);
+                //}
+                //else if(val < beachLevel)
+                //{
+                //    Instantiate(beachTile, pos, Quaternion.identity, transform);
+                //
+                //} 
+                //else if(val < groundLevel)
+                //{
+                //    Instantiate(groundTile, pos, Quaternion.identity, transform);
+                //
+                //}
+                //else if(val < mountainLevel)
+                //{
+                //    Instantiate(mountainTile, pos, Quaternion.identity, transform);
+                //
+                //}
+                //else
+                //{
+                //    Instantiate(snowTile, pos, Quaternion.identity, transform);
+                //
+                //}
 
 
 
