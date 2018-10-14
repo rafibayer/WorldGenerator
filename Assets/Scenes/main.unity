@@ -234,16 +234,16 @@ MonoBehaviour:
   octaves: 4
   freq: 15
   amp: 1
-  width: 100
-  height: 100
+  width: 250
+  height: 250
   scale: 1
   worldTiles:
-  - {fileID: 114348383216029642, guid: 971952d0209debf41b6c2028bd9ecfc7, type: 2}
   - {fileID: 114007091997728688, guid: febc27076587cf9429b16eb53f8f4140, type: 2}
-  - {fileID: 114991748190525668, guid: 2dfb9b106f01aea4591b3ef441f3ff3c, type: 2}
+  - {fileID: 114267931843805552, guid: da7787a7bf3a2c341a247b085bebdca0, type: 2}
   - {fileID: 114307263738767446, guid: 70a49729f57247740afe4718d434b6a1, type: 2}
-  - {fileID: 114939265223083644, guid: 6514793121836044380931e335d3054a, type: 2}
   - {fileID: 114509484059869242, guid: d274d03db1fb2fe49afd352f688a8a35, type: 2}
+  - {fileID: 114939265223083644, guid: 6514793121836044380931e335d3054a, type: 2}
+  - {fileID: 114348383216029642, guid: 971952d0209debf41b6c2028bd9ecfc7, type: 2}
   savedPath: E:\Unity\WorldGenerator\Assets\text.txt
 --- !u!4 &967657154
 Transform:

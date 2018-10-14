@@ -160,15 +160,15 @@ public class WorldGenerator : MonoBehaviour
                 bool spawned = false;
                 foreach(worldTile wt in worldTiles)
                 {
-                    if(val < wt.maxHeight && !spawned)
+                    if(!spawned && val < wt.maxHeight)
                     {
-                        Instantiate(wt, pos, Quaternion.identity, transform);
+                        Instantiate(wt, pos, wt.transform.rotation, transform);
                         spawned = true;
                     }
                 }
                 if(!spawned)
                 {
-                    Instantiate(worldTiles[worldTiles.Count - 1], pos, Quaternion.identity, transform);
+                    Instantiate(worldTiles[worldTiles.Count - 1], pos, worldTiles[worldTiles.Count - 1].transform.rotation, transform);
                 }
 
             }
