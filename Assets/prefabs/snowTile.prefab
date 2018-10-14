@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 23857391321105134}
   - component: {fileID: 114939265223083644}
   - component: {fileID: 114191777838645360}
-  m_Layer: 0
+  - component: {fileID: 65380395789007984}
+  m_Layer: 9
   m_Name: snowTile
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -85,6 +86,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1401864389682918}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65380395789007984
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1401864389682918}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114191777838645360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,3 +142,5 @@ MonoBehaviour:
   mats:
   - {fileID: 2100000, guid: 5f14b91c6eee33c49a1a7fa33698f68c, type: 2}
   - {fileID: 2100000, guid: d56cb33c08ca5ad43a6a06398026b6e9, type: 2}
+  x: 0
+  y: 0

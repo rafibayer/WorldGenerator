@@ -8,6 +8,9 @@ public class worldTile : MonoBehaviour
     public float maxHeight;//max height this tile can occur at
     public List<Material> mats;//list of possible materials for this tile
 
+    public int x = 0;
+    public int y = 0;
+
     private void Start()
     {
         if(mats.Count > 0)

@@ -7,6 +7,7 @@ public class WorldGenerator : MonoBehaviour
 
 
     public Mode mode = Mode.generate; //generate creates a new world using below settings, read reads from text file
+    public bool tileAtHeight = true;//should the tile be placed at the value of it's coordinate? otherwise place at 0
     public bool normalize = true;//normalize all values between [0, max]
     public int octaves = 5;//more octaves = more complexity
     public float freq = 100.0f;//high frequency, more large masses, low frequency, more islands and lakes
@@ -154,21 +155,24 @@ public class WorldGenerator : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                Vector3 pos = new Vector3(x * scale, 0, y * scale);
                 float val = values[x, y];
+                Vector3 pos = new Vector3(x * scale, tileAtHeight ? val : 0f, y * scale);
 
                 bool spawned = false;
-                foreach(worldTile wt in worldTiles)
+                worldTile newTile;
+                foreach (worldTile wt in worldTiles)
                 {
                     if(!spawned && val < wt.maxHeight)
                     {
-                        Instantiate(wt, pos, wt.transform.rotation, transform);
+                        newTile = Instantiate(wt, pos, wt.transform.rotation, transform);
+                        newTile.x = x; newTile.y = y;
                         spawned = true;
                     }
                 }
                 if(!spawned)
                 {
-                    Instantiate(worldTiles[worldTiles.Count - 1], pos, worldTiles[worldTiles.Count - 1].transform.rotation, transform);
+                    newTile = Instantiate(worldTiles[worldTiles.Count - 1], pos, worldTiles[worldTiles.Count - 1].transform.rotation, transform);
+                    newTile.x = x; newTile.y = y;
                 }
 
             }
