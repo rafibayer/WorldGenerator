@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33397873831719554}
   - component: {fileID: 23973414416845482}
   - component: {fileID: 114307263738767446}
+  - component: {fileID: 114648756955659774}
   m_Layer: 0
   m_Name: mountainTile
   m_TagString: Untagged
@@ -96,7 +97,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: mountain
-  maxHeight: 0.9
+  maxHeight: 0.93
   mats:
   - {fileID: 2100000, guid: f07dcd2c912ab1642950f7648de1845b, type: 2}
   - {fileID: 2100000, guid: 92c811afd89e68c40bf6f76c2dc3ec82, type: 2}
+--- !u!114 &114648756955659774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1396555280604582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 15ab75da8dc9acd4ea670a55bf78eb39, type: 2}
