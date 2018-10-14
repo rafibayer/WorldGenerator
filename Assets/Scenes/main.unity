@@ -232,7 +232,7 @@ MonoBehaviour:
   mode: 1
   normalize: 1
   octaves: 2
-  freq: 25
+  freq: 40
   amp: 1
   width: 50
   height: 50

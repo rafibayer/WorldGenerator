@@ -17,10 +17,10 @@ public class autoCamera : MonoBehaviour {
         worldGen = GameObject.Find("worldGen").GetComponent<WorldGenerator>();
         Vector3 pos = new Vector3(worldGen.width / 2,
                                  Mathf.Sqrt(worldGen.width * worldGen.height),
-                                    worldGen.height / 2);
+                                    worldGen.height / 2) * worldGen.scale;
         if(cam.orthographic)
         {
-            cam.orthographicSize = Mathf.Max(new int []{ worldGen.width, worldGen.height}) / 2;
+            cam.orthographicSize = worldGen.scale * Mathf.Max(new int []{ worldGen.width, worldGen.height}) / 2;
         }
         transform.position = pos;
         yield break;
