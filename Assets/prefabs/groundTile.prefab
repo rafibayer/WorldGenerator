@@ -97,3 +97,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: ground
   maxHeight: 0.82
+  mats:
+  - {fileID: 2100000, guid: df8a3d5157afa3d40a74cabd985836e4, type: 2}
+  - {fileID: 2100000, guid: d2ec2c05ea2b8ce44899cb1ead198d49, type: 2}

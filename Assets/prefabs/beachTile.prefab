@@ -97,3 +97,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: beach
   maxHeight: 0.7
+  mats:
+  - {fileID: 2100000, guid: 36d1ff7995e0c90489292ab997ed9746, type: 2}
+  - {fileID: 2100000, guid: 2b5c38b9f35823c489163f6c75987115, type: 2}

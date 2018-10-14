@@ -97,3 +97,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: mountain
   maxHeight: 0.9
+  mats:
+  - {fileID: 2100000, guid: f07dcd2c912ab1642950f7648de1845b, type: 2}
+  - {fileID: 2100000, guid: 92c811afd89e68c40bf6f76c2dc3ec82, type: 2}

@@ -97,3 +97,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: forest
   maxHeight: 0.85
+  mats: []

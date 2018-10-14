@@ -97,3 +97,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: water
   maxHeight: 0.65
+  mats: []

@@ -97,3 +97,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: snow
   maxHeight: 1
+  mats: []

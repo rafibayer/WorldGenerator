@@ -6,6 +6,16 @@ public class worldTile : MonoBehaviour
 {
     public string tileName = "";
     public float maxHeight;//max height this tile can occur at
+    public List<Material> mats;//list of possible materials for this tile
+
+    private void Start()
+    {
+        if(mats.Count > 0)
+        {
+            gameObject.GetComponent<Renderer>().material = mats[Random.Range(0, mats.Count)];//set the material to a random value in mats
+
+        }
+    }
 
 }
 
