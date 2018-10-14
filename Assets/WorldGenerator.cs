@@ -36,14 +36,15 @@ public class WorldGenerator : MonoBehaviour
     private void Start()
     {
         //generate new map
-        if(mode == Mode.generate)
+        if (mode == Mode.generate)
         {
             seed = Random.value;
             values = new float[width, height];
             generateNoiseMap();
+            
             noiseToTile();
         }
-        else if(mode == Mode.write)//generate world and write
+        else if (mode == Mode.write)//generate world and write
         {
             seed = Random.value;
             values = new float[width, height];
@@ -52,30 +53,30 @@ public class WorldGenerator : MonoBehaviour
             writeToFile();
         }
         //read map from savedPath
-        else if(mode == Mode.read)
+        else if (mode == Mode.read)
         {
             string[] lines = System.IO.File.ReadAllLines(savedPath);
             string[] dim = lines[lines.Length - 1].Split('x');//dimensions are stored on last line in format WxH
             values = new float[int.Parse(dim[0]), int.Parse(dim[1])];//set array size
             width = int.Parse(dim[0]); height = int.Parse(dim[1]);//set dimensions
-            for(int row = 0; row < lines.Length - 1; row++)//go until second to last line (last line has dimensions not vals)
+            for (int row = 0; row < lines.Length - 1; row++)//go until second to last line (last line has dimensions not vals)
             {
 
                 string[] split = lines[row].Split(' ');
                 //-1 because i didn't account for fencepost when adding spaces
-                for(int col = 0; col < split.Length - 1; col++)
+                for (int col = 0; col < split.Length - 1; col++)
                 {
                     values[row, col] = float.Parse(split[col]);
-                    
+
                 }
-                
+
             }
 
             noiseToTile();//convert the values into the tilemap
-           
+
 
         }
-        
+
 
     }
 
@@ -123,6 +124,7 @@ public class WorldGenerator : MonoBehaviour
             }
         }
     }
+
 
     //writes the generated noisemap to a file, dimensions are stored on the last line
     //in the format widthxheight

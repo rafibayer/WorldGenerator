@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class worldTile : MonoBehaviour
 {
-
-    public float maxHeight;
+    public string tileName = "";
+    public float maxHeight;//max height this tile can occur at
 
 }
 
-public class WorldTileComp : IComparer<worldTile>
+public class WorldTileComp : IComparer<worldTile>//IComparer<worldTile> for tiles, sorted by max height
 {
     public int Compare(worldTile myTile, worldTile otherTile)
     {
