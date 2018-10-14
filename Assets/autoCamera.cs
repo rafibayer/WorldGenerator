@@ -5,7 +5,9 @@ using UnityEngine;
 public class autoCamera : MonoBehaviour {
 
     private WorldGenerator worldGen;
+    private Camera cam;
 	void Start () {
+        cam = gameObject.GetComponent<Camera>();
         StartCoroutine(delayedCamera());
     }
 
@@ -16,6 +18,10 @@ public class autoCamera : MonoBehaviour {
         Vector3 pos = new Vector3(worldGen.width / 2,
                                  Mathf.Sqrt(worldGen.width * worldGen.height),
                                     worldGen.height / 2);
+        if(cam.orthographic)
+        {
+            cam.orthographicSize = Mathf.Max(new int []{ worldGen.width, worldGen.height}) / 2;
+        }
         transform.position = pos;
         yield break;
     }

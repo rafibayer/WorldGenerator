@@ -146,8 +146,8 @@ Camera:
   m_GameObject: {fileID: 441797953}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.18133679, g: 0.19776084, b: 0.23584908, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -161,7 +161,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -231,23 +231,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 1
   normalize: 1
-  octaves: 3
+  octaves: 2
   freq: 25
   amp: 1
-  width: 100
-  height: 100
+  width: 50
+  height: 50
   scale: 1
-  waterLevel: 0.65
-  beachLevel: 0.7
-  groundLevel: 0.82
-  mountainLevel: 0.9
-  snowLevel: 0.95
-  waterTile: {fileID: 1350508052555536, guid: 971952d0209debf41b6c2028bd9ecfc7, type: 2}
-  beachTile: {fileID: 1642346280940418, guid: febc27076587cf9429b16eb53f8f4140, type: 2}
-  groundTile: {fileID: 1405320033057762, guid: 2dfb9b106f01aea4591b3ef441f3ff3c, type: 2}
-  mountainTile: {fileID: 1396555280604582, guid: 70a49729f57247740afe4718d434b6a1,
-    type: 2}
-  snowTile: {fileID: 1401864389682918, guid: 6514793121836044380931e335d3054a, type: 2}
   worldTiles:
   - {fileID: 114348383216029642, guid: 971952d0209debf41b6c2028bd9ecfc7, type: 2}
   - {fileID: 114007091997728688, guid: febc27076587cf9429b16eb53f8f4140, type: 2}
