@@ -235,7 +235,7 @@ MonoBehaviour:
   normalize: 1
   octaves: 3
   freq: 15
-  amp: 5
+  amp: 1
   width: 50
   height: 50
   scale: 1
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7461552c850c454b82fc82823de5489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testObject: {fileID: 1048345480022704, guid: baa959f948d095b4bbab6679f77f24bd, type: 2}
+  testObject: {fileID: 1434821220403126, guid: f6df2f691d2765d40a469d1e46a7f665, type: 2}
 --- !u!4 &1138788376
 Transform:
   m_ObjectHideFlags: 0
