@@ -41,6 +41,7 @@ public class Unit : MonoBehaviour {
 
 	}
     
+    //get list of possible move directions
     private List<Vector3> getValidMoves(bool diag)
     {
         List<Vector3> possible = new List<Vector3>
@@ -60,6 +61,7 @@ public class Unit : MonoBehaviour {
         
         List<Vector3> result = new List<Vector3>();
         Vector3 pos = transform.position;
+        //filter based on bounds and legal tiles
         foreach (Vector3 v3 in possible)
         {
             worldTile tile = world.getTileInfo((int)(v3.x + pos.x), (int)(v3.y + pos.z));

@@ -11,7 +11,8 @@ public class autoCamera : MonoBehaviour {
         StartCoroutine(delayedCamera());
     }
 
-    IEnumerator delayedCamera()//waits until worldGen finished generation or read
+    //waits until worldGen finished generation or read
+    IEnumerator delayedCamera()
     {
         yield return new WaitForSeconds(0.1f);
         worldGen = GameObject.Find("worldGen").GetComponent<WorldGenerator>();//refrence to the world generator

@@ -26,20 +26,26 @@ public class unitPlacer : MonoBehaviour {
             if(hit.collider != null && hit.collider.tag.Equals("Tile"))
             {
                 worldTile hitTile = hit.collider.GetComponent<worldTile>();
-                placeUnit(testObject, hitTile.x, hitTile.y);
+                placeUnit(testObject, hitTile.x, hitTile.y, true);
             }
         }
+
+        
     }
 
     //places a unit at x, y in the generated world, returns true if successful, returns false if
     //that x, y was already occupied
-    public bool placeUnit(GameObject unit, int x, int y)
+    public bool placeUnit(GameObject unit, int x, int y, bool occupy)
     {
         if(occupied[x, y])
         {
             return false;
         }
-        occupied[x, y] = true;
+
+        if (occupy)
+        {
+            occupied[x, y] = true;
+        }
         Instantiate(unit, new Vector3(x, 1, y), Quaternion.identity);
         return true;
 
@@ -48,7 +54,7 @@ public class unitPlacer : MonoBehaviour {
     //places a unit at xPlace, yPlace, occupying from xStart, yStart to xTo, yTo (inclusive)
     //returns true if placed succesfully, returns false otherwise
     public bool placeUnit(GameObject unit, int xPlace, int yPlace, 
-                            int xStart, int yStart, int xTo, int yTo)
+                            int xStart, int yStart, int xTo, int yTo, bool occupy)
     {
         if(xPlace < xStart || yPlace < yStart || xPlace > xTo || yPlace > yTo)
         {
@@ -61,13 +67,17 @@ public class unitPlacer : MonoBehaviour {
             return false;
         }
 
-        for(int x = xStart; x <= xTo; x++)
+        if(occupy)
         {
-            for(int y = yStart; y <= yTo; y++)
+            for (int x = xStart; x <= xTo; x++)
             {
-                occupied[x, y] = true;
+                for (int y = yStart; y <= yTo; y++)
+                {
+                    occupied[x, y] = true;
+                }
             }
         }
+       
 
         Instantiate(unit, new Vector3(xPlace, 1, yPlace), Quaternion.identity);
         return true;
