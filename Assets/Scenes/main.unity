@@ -231,7 +231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 1
-  tileAtHeight: 0
   normalize: 1
   octaves: 3
   freq: 25

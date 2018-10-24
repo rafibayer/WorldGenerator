@@ -82,6 +82,7 @@ public class WorldGenerator : MonoBehaviour
 
     }
 
+    //generate a 2d perlin noise map based on current settings
     public void generateNoiseMap()
     {
         for (int x = 0; x < width; x++)
