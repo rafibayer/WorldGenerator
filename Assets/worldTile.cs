@@ -24,14 +24,35 @@ public class worldTile : MonoBehaviour
         }
     }
 
+    public void replaceTile(float newHeight)
+    {
+        worldTile tileForHeight = worldGen.getTileForHeight(worldGen.getValue(x, y));
+        GameObject replacement = Instantiate(tileForHeight, transform.position, transform.rotation, worldGen.transform).gameObject;
+        worldTile tile = replacement.GetComponent<worldTile>();
+        tile.worldGen = worldGen;
+        tile.x = x;
+        tile.y = y;
+
+        Debug.Log(tile.x + "," + tile.y);
+        worldGen.tiles[x, y] = replacement;
+
+
+        Destroy(gameObject);
+    }
+
     //rebuild this tile based on height value
     public void rebuildTile()
     {
+
+
+        /*
         worldTile newTile = worldGen.getTileForHeight(worldGen.getValue(x, y));
         newTile = Instantiate(newTile, transform.position, transform.rotation, worldGen.transform);
         newTile.worldGen = worldGen;
         worldGen.tiles[newTile.x, newTile.y] = newTile;
+
         Destroy(gameObject);
+        */
     }
 
 }
