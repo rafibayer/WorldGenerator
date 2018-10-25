@@ -25,12 +25,14 @@ public class worldEditor : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             Physics.Raycast(ray, out hit);
+            Debug.Log(hit.collider.gameObject.GetComponent<worldTile>().tileName);
 
             if (hit.collider != null && hit.collider.tag.Equals("Tile"))
             {
                 worldTile hitTile = hit.collider.GetComponent<worldTile>();
                 Vector3 pos = new Vector3(hitTile.x, hitTile.y);
-                multEdit((int)pos.x, (int)pos.y, drawHeight, radius);
+                //multEdit((int)pos.x, (int)pos.y, drawHeight, radius);
+                editTile((int)pos.x, (int)pos.y, drawHeight);
             }
         }
     }
@@ -44,7 +46,7 @@ public class worldEditor : MonoBehaviour
     public void editTile(int x, int y, float newHeight)
     {
         worldGen.setValue(x, y, newHeight);
-        worldGen.getTile(x, y).rebuildTile();
+        worldGen.tiles[x, y].rebuildTile();
     }
 
     public void multEdit(int x, int y, float newHeight, int radius)
@@ -58,7 +60,7 @@ public class worldEditor : MonoBehaviour
         {
             worldTile tile = col.gameObject.GetComponent<worldTile>();
             worldGen.setValue(tile.x, tile.y, newHeight);
-            worldGen.getTile(tile.x, tile.y).rebuildTile();
+            worldGen.tiles[tile.x, tile.y].rebuildTile();
         }
 
     }

@@ -27,10 +27,10 @@ public class worldTile : MonoBehaviour
     //rebuild this tile based on height value
     public void rebuildTile()
     {
-        worldTile newTile = worldGen.getTileInfo(x, y);
+        worldTile newTile = worldGen.getTileForHeight(worldGen.getValue(x, y));
         newTile = Instantiate(newTile, transform.position, transform.rotation, worldGen.transform);
         newTile.worldGen = worldGen;
-        worldGen.setTile(newTile.x, newTile.y, newTile);
+        worldGen.tiles[newTile.x, newTile.y] = newTile;
         Destroy(gameObject);
     }
 
