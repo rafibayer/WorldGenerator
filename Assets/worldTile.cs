@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class worldTile : MonoBehaviour
 {
-    public string tileName = "";
+    public string tileName = "";//name of the this tile
     public float maxHeight;//max height this tile can occur at
     public List<Material> mats;//list of possible materials for this tile
 
-    public WorldGenerator worldGen;
+    public WorldGenerator worldGen;//refrence to worldGenerator
 
-    public int x = 0;
-    public int y = 0;
+    public int x = 0;//x position
+    public int y = 0;//y position
 
     private void Start()
     {
@@ -24,6 +24,7 @@ public class worldTile : MonoBehaviour
         }
     }
 
+    //replaces this tile with the appropriate tile for a new height
     public void replaceTile(float newHeight)
     {
         worldTile tileForHeight = worldGen.getTileForHeight(worldGen.getValue(x, y));
@@ -40,20 +41,6 @@ public class worldTile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    //rebuild this tile based on height value
-    public void rebuildTile()
-    {
-
-
-        /*
-        worldTile newTile = worldGen.getTileForHeight(worldGen.getValue(x, y));
-        newTile = Instantiate(newTile, transform.position, transform.rotation, worldGen.transform);
-        newTile.worldGen = worldGen;
-        worldGen.tiles[newTile.x, newTile.y] = newTile;
-
-        Destroy(gameObject);
-        */
-    }
 
 }
 

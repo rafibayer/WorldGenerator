@@ -5,14 +5,16 @@ using UnityEngine;
 public class worldEditor : MonoBehaviour
 {
 
-    public float drawHeight = 0.5f;
-    private WorldGenerator worldGen;
+    public float drawHeight = 0.5f;//the height to set edited tiles to
+    private WorldGenerator worldGen;//refrence to the worldGenerator
 
-    public int radius = 3;
-    public Mode mode = Mode.Circle;
+    public int size = 3;//radius to edit in for circle and square
+    public Mode mode = Mode.Circle;//the current edit mode
 
+    //edit mode
     public enum Mode
     {
+        Single,
         Circle,
         Square
     };
@@ -30,8 +32,22 @@ public class worldEditor : MonoBehaviour
             {
                 worldTile hitTile = hit.collider.GetComponent<worldTile>();
                 Vector3 pos = new Vector3(hitTile.x, hitTile.y);
-                //multEdit((int)pos.x, (int)pos.y, drawHeight, radius);
-                editTile((int)pos.x, (int)pos.y, drawHeight);
+
+                switch(mode)
+                {
+                    case Mode.Single:
+                        editTile((int)pos.x, (int)pos.y, drawHeight);
+                        break;
+                    case Mode.Circle:
+                        multEdit((int)pos.x, (int)pos.y, drawHeight, size);
+                        break;
+                    default:
+                        editTile((int)pos.x, (int)pos.y, drawHeight);
+                        break;
+
+
+                }
+                
             }
         }
     }
@@ -48,12 +64,13 @@ public class worldEditor : MonoBehaviour
         worldGen.tiles[x, y].GetComponent<worldTile>().replaceTile(newHeight);
     }
 
+    //set all tiles in a radius of x,y to a new height
     public void multEdit(int x, int y, float newHeight, int radius)
     {
         Vector3 pos = new Vector3(x, 0, y);
         Collider[] toEdit = Physics.OverlapSphere(pos, radius, LayerMask.GetMask("Tile"));
 
-
+        
         foreach(Collider col in toEdit)
         {
             worldTile tile = col.gameObject.GetComponent<worldTile>();
@@ -61,6 +78,11 @@ public class worldEditor : MonoBehaviour
             worldGen.tiles[tile.x, tile.y].GetComponent<worldTile>().replaceTile(newHeight);
 
         }
+
+    }
+
+    public void squareEdit(int x, int y, float newHeight, int sideLength)
+    {
 
     }
    

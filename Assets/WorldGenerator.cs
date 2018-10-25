@@ -200,8 +200,6 @@ public class WorldGenerator : MonoBehaviour
         {
             return null;
         }
-
-        //return tiles[x, y];//BROKE SOMETHING USING GET TILE INFO
         
         float val = values[x, y];
         worldTiles.Sort(new WorldTileComp());
@@ -217,6 +215,8 @@ public class WorldGenerator : MonoBehaviour
         
     }
 
+    //return the appropriate tile for a specified height
+    //returns the heighest tile if height is greater than the heighest
     public worldTile getTileForHeight(float height)
     {
         worldTiles.Sort(new WorldTileComp());
@@ -231,11 +231,13 @@ public class WorldGenerator : MonoBehaviour
         return worldTiles[worldTiles.Count - 1];
     }
 
+    //set the value at x,y to a float value
     public void setValue(int x, int y, float value)
     {
         values[x, y] = value;
     }
 
+    //get the height value at x,y 
     public float getValue(int x, int y)
     {
         return values[x, y];
